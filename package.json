@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "name": "pi-reajsutesalario",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryan-ggarcia/PI-reajsuteSalario.git"
+  },
+  "author": "Ryan Fidelis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryan-ggarcia/PI-reajsuteSalario/issues"
+  },
+  "homepage": "https://github.com/ryan-ggarcia/PI-reajsuteSalario#readme",
+  "description": ""
+}
