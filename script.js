@@ -101,20 +101,20 @@ servidor.get('/funcionario', (req, res) => {
       if (genero == "M" && ano >= 10) {
         let reajuste = (salario * reajusteM) / 100
         let novoSalario = salario + reajuste
-        res.send(`Seu novo salario é: ${novoSalario}`)
+        res.write(`Seu novo salario é: ${novoSalario}`)
       } else {
         let reajuste = (salario * reajusteM) / 100
         let novoSalario = salario - reajuste
-        res.send(`Seu novo salario é: ${novoSalario}`)
+        res.write(`Seu novo salario é: ${novoSalario}`)
       }
       if (genero == "F" && ano >= 10) {
         let reajuste = (salario * reajusteF) / 100
         let novoSalario = salario + reajuste
-        res.send(`Seu novo salario é: ${novoSalario}`)
+        res.write(`Seu novo salario é: ${novoSalario}`)
       } else {
         let reajuste = (salario * reajusteF) / 100
         let novoSalario = salario - reajuste
-        res.send(`Seu novo salario é: ${novoSalario}`)
+        res.write(`Seu novo salario é: ${novoSalario}`)
       }
     } else if (idade >= 40 && idade <= 69) {
       let reajusteF = 10
@@ -122,20 +122,20 @@ servidor.get('/funcionario', (req, res) => {
       if (genero == "M" && ano >= 10) {
         let reajuste = (salario * reajusteM) / 100
         let novoSalario = salario + reajuste
-        res.send(`Seu novo salario é: ${novoSalario}`)
+        res.write(`Seu novo salario é: ${novoSalario}`)
       } else {
         let reajuste = (salario * reajusteM) / 100
         let novoSalario = salario - reajuste
-        res.send(`Seu novo salario é: ${novoSalario}`)
+        res.write(`Seu novo salario é: ${novoSalario}`)
       }
       if (genero == "F" && ano >= 10) {
         let reajuste = (salario * reajusteF) / 100
         let novoSalario = salario + reajuste
-        res.send(`Seu novo salario é: ${novoSalario}`)
+        res.write(`Seu novo salario é: ${novoSalario}`)
       } else {
         let reajuste = (salario * reajusteF) / 100
         let novoSalario = salario - reajuste
-        res.send(`Seu novo salario é: ${novoSalario}`)
+        res.write(`Seu novo salario é: ${novoSalario}`)
       }
     }else if(idade >= 70 && idade <= 99){
       let reajusteF = 15
@@ -143,64 +143,21 @@ servidor.get('/funcionario', (req, res) => {
       if (genero == "M" && ano >= 10) {
         let reajuste = (salario * reajusteM) / 100
         let novoSalario = salario + reajuste
-        res.send(`Seu novo salario é: ${novoSalario}`)
+        res.write(`Seu novo salario é: ${novoSalario}`)
       } else {
         let reajuste = (salario * reajusteM) / 100
         let novoSalario = salario - reajuste
-        res.send(`Seu novo salario é: ${novoSalario}`)
+        res.write(`Seu novo salario é: ${novoSalario}`)
       }
       if (genero == "F" && ano >= 10) {
         let reajuste = (salario * reajusteF) / 100
         let novoSalario = salario + reajuste
-        res.send(`Seu novo salario é: ${novoSalario}`)
+        res.write(`Seu novo salario é: ${novoSalario}`)
       } else {
         let reajuste = (salario * reajusteF) / 100
         let novoSalario = salario - reajuste
-        res.send(`Seu novo salario é: ${novoSalario}`)
+        res.write(`Seu novo salario é: ${novoSalario}`)
       }
-    }else{
-      res.send(
-        `<!doctype html>
-    <html lang="pt-br">
-      <head>
-       <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            *{
-              font-family:"arial";
-            }
-            .txt{
-              color: red;
-            }
-            h1{
-              color: red;
-              font-size: 2.5rem;
-            }
-            body{
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-            }
-        </style>
-      </head>
-      <body>
-        <h1>ERRO!! AS INFORMAÇÕES ESTÃO INCORRETAS!</h1>
-        <div>
-        <p>
-          <span>http://localhost:3000/funcionario?</span>
-          <span class="txt">id=18</span>&
-          <span class="txt">sex=F</span>&
-          <span class="txt">sal=1700</span>&
-          <span class="txt">anos=10</span>
-        </p>
-        <p>
-          Parâmetros: idade, sexo (M/F), salário base e anos tabalhados na empresa 
-        </p>
-        </div>
-            </body>
-    </html>`
-      )
     }
   }
 })
