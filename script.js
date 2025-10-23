@@ -48,7 +48,7 @@ servidor.get('/', (req, res) => {
 })
 servidor.get('/funcionario', (req, res) => {
   const idade = parseInt(req.query.id)
-  const genero = req.query.sex.toUpperCase()
+  const genero = req.query.sex?.toUpperCase()
   const salario = parseFloat(req.query.sal)
   const ano = parseInt(req.query.anos)
   if (!idade || !genero || !salario || !ano) {
