@@ -2,7 +2,8 @@ import express from "express"
 const servidor = express()
 const port = 3000
 const host = "0.0.0.0"
-
+const reajusteM = 10
+const reajusteF = 8
 servidor.listen(port, host, () => {
     console.log(`Servidor Online na porta: ${port} do Host: ${host}`)
 })
@@ -33,17 +34,88 @@ servidor.get('/', (req, res) => {
         <div>
           <p>Para fazer o reajuste de salário, siga o exemplo abaixo:</p>
         <p>
-          <span>http://localhost:3000/?</span>
-          <span class="txt">idade=18</span>&
-          <span class="txt">sexo=F</span>&
-          <span class="txt">salario_base=1700</span>&
-          <span class="txt">anosNaEmpresa=2014</span>
+          <span>http://localhost:3000/funcionario?</span>
+          <span class="txt">id=18</span>&
+          <span class="txt">sex=F</span>&
+          <span class="txt">sal=1700</span>&
+          <span class="txt">anos=10</span>
         </p>
         <p>
-          Parâmetros: idade, sexo (M/F), salário base, e ano de entrada na empresa.
+          Parâmetros: idade, sexo (M/F), salário base e anos tabalhados na empresa 
         </p>
         </div>
             </body>
     </html>`
     )
+})
+servidor.get('/funcionario',(req,res)=>{
+  const idade = parseInt(req.query.id)
+  const genero = req.query.sex
+  const salario = parseFloat(req.query.sal)
+  const ano = parseInt(req.query.anos)
+  if(!idade || !genero || !salario || !ano ){
+    res.write(
+        `<!doctype html>
+    <html lang="pt-br">
+      <head>
+       <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            *{
+              font-family:"arial";
+            }
+            .txt{
+              color: red;
+            }
+            h1{
+              color: red;
+              font-size: 2.5rem;
+            }
+            body{
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+            }
+        </style>
+      </head>
+      <body>
+        <h1>TODOS OS CAMPOS DEVEM SER PREENCHIDOS!!</h1>
+        <div>
+        <p>
+          <span>http://localhost:3000/funcionario?</span>
+          <span class="txt">id=18</span>&
+          <span class="txt">sex=F</span>&
+          <span class="txt">sal=1700</span>&
+          <span class="txt">anos=10</span>
+        </p>
+        <p>
+          Parâmetros: idade, sexo (M/F), salário base e anos tabalhados na empresa 
+        </p>
+        </div>
+            </body>
+    </html>`
+    )
+  }else{
+    if(idade >= 18 || idade <= 39){
+      if(genero == "M" && ano >= 10){
+        let reajuste = (salario * reajusteM)/100
+        let novoSalario = salario + reajuste
+        alert(`Seu novo salario é: ${novoSalario}`)
+      }else{
+        let reajuste = (salario * reajusteM)/100
+        let novoSalario = salario - reajuste
+        alert(`Seu novo salario é: ${novoSalario}`)
+      }
+      if(genero == "F" && ano >= 10){
+        let reajuste = (salario * reajusteF)/100
+        let novoSalario = salario + reajuste
+        alert(`Seu novo salario é: ${novoSalario}`)
+      }else{
+         let reajuste = (salario * reajusteF)/100
+        let novoSalario = salario - reajuste
+        alert(`Seu novo salario é: ${novoSalario}`)
+      }
+    }
+  }
 })
